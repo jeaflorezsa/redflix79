@@ -1,8 +1,8 @@
 -- creamos la base de datos 
-DROP DATABASE IF EXISTS redflix79db;
-CREATE DATABASE redflix79db;
+DROP DATABASE IF EXISTS G3M3E6;
+CREATE DATABASE G3M3E6;
 -- usar base datos 
-USE redflix79db;
+USE G3M3E6;
 -- creamos la tabla usuarios
 CREATE TABLE IF NOT EXISTS usuario(
 	alias_usuario VARCHAR(40) NOT NULL,  
