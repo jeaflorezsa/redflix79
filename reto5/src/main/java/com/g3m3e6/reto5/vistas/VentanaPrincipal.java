@@ -160,13 +160,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         lbUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        lbUsuario.setFont(new java.awt.Font("Arial Black", 3, 22)); // NOI18N
+        lbUsuario.setFont(new java.awt.Font("Arial Black", 3, 30)); // NOI18N
         lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario.setText("Usuario");
 
-        lbNombreUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbNombreUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lbNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        lbNombreUsuario.setText("Nombre y apellidos");
+        lbNombreUsuario.setText("Nombre y apellidos:");
 
         tfAliasUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,17 +174,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Alas:");
 
+        btnCrearUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnCrearUsuario.setForeground(new java.awt.Color(0, 102, 255));
+        btnCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disquete.png"))); // NOI18N
         btnCrearUsuario.setText("Crear");
+        btnCrearUsuario.setBorder(null);
+        btnCrearUsuario.setBorderPainted(false);
+        btnCrearUsuario.setContentAreaFilled(false);
 
+        btnBuscarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnBuscarUsuario.setForeground(new java.awt.Color(0, 102, 255));
+        btnBuscarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar.png"))); // NOI18N
         btnBuscarUsuario.setText("Buscar");
+        btnBuscarUsuario.setBorder(null);
+        btnBuscarUsuario.setBorderPainted(false);
+        btnBuscarUsuario.setContentAreaFilled(false);
 
+        btnActualizarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnActualizarUsuario.setForeground(new java.awt.Color(0, 102, 255));
+        btnActualizarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         btnActualizarUsuario.setText("Actualizar");
+        btnActualizarUsuario.setBorder(null);
+        btnActualizarUsuario.setBorderPainted(false);
+        btnActualizarUsuario.setContentAreaFilled(false);
 
+        btnEliminarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnEliminarUsuario.setForeground(new java.awt.Color(0, 102, 255));
+        btnEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarUsuario.setText("Eliminar");
+        btnEliminarUsuario.setBorder(null);
+        btnEliminarUsuario.setBorderPainted(false);
+        btnEliminarUsuario.setContentAreaFilled(false);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -206,26 +230,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbNombreUsuario)
-                                    .addComponent(jLabel6))
-                                .addGap(28, 28, 28)
-                                .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfAliasUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                                    .addComponent(tfNombreUsuario))
-                                .addGap(106, 106, 106))
+                                    .addComponent(lbNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(51, 51, 51)
+                                .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(139, 139, 139))
                             .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                                .addGap(284, 284, 284)
-                                .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                                .addGap(101, 101, 101)
-                                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(67, Short.MAX_VALUE))
+                                .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
+                                        .addGap(101, 101, 101)
+                                        .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(40, 40, 40)
+                                        .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
+                                        .addGap(284, 284, 284)
+                                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(67, Short.MAX_VALUE))))
                     .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
@@ -236,17 +262,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbAliasUsuarioLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(27, 27, 27)
-                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
                         .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(25, 25, 25)
-                        .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbNombreUsuario))
-                        .addGap(73, 73, 73)
+                            .addComponent(lbNombreUsuario)
+                            .addComponent(tfNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
                         .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
