@@ -1,0 +1,3 @@
+jButton1 modificado a jbCerrarApp
+jLabel2 modificado a jlTituloRedflix
+jPanel3 modificado a jpOpciones

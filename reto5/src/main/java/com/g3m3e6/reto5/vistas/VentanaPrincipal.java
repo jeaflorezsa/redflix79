@@ -5,6 +5,7 @@
  */
 package com.g3m3e6.reto5.vistas;
 
+import com.g3m3e6.reto5.entidades.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,9 +14,37 @@ import javax.swing.JOptionPane;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaPrincipal
-     */
+    private void crearUsuario(){
+        String alias = tfAliasUsuario.getText();
+        /*
+            se realizan primero las validaciones de que el alias no este en blanco y de que el alias no este repetido
+            para crear un objeto usuario cuando es seguro que se va a usar
+        */
+        if (alias.isBlank()){
+            lbNotificaciones.setText("Por favor diligencia el alias del usuario");
+            tfNombreUsuario.setText("");
+        }else{
+            if(/*en esta parte iria el resultado de la validacion de que SI existe o NO existe el alias en la db*/ true  ){
+                /*si NO existe se pasa a crear el usuario*/
+
+                Usuario usuario = new Usuario();
+                /*aqui se guarda la informacion del metodo "obtenerDatosDeFormulario()" en el objeto usuario*/
+                String alias_usuario = alias;
+                String nombre_usuario = tfNombreUsuario.getText();
+
+                lbNotificaciones.setText("Se registró exitosamente el usuario" + alias);
+                System.out.println("Se registró exitosamente el usuario" + alias);
+                tfAliasUsuario.setText("");
+                tfNombreUsuario.setText("");
+            }else{
+                lbNotificaciones.setText("Lo sentimos el usuario no se encuentra disponible");
+                System.out.println("Lo sentimos el usuario no se encuentra disponible");
+                tfAliasUsuario.setText("");
+                tfNombreUsuario.setText("");
+            }
+        }
+    }
+            
     public VentanaPrincipal() {
         setResizable(false);
         initComponents();
@@ -34,14 +63,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         lbAliasUsuario = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jbCerrarApp = new javax.swing.JButton();
+        jlTituloRedflix = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         BtnUsuario = new javax.swing.JButton();
         BtnSerie = new javax.swing.JButton();
         BtnPelicula = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        lbNotificaciones = new javax.swing.JLabel();
         PUsuario = new javax.swing.JPanel();
         lbUsuario = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -89,60 +117,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 102, 102));
         jPanel2.setAutoscrolls(true);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image (1).png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cerrar (1).png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbCerrarApp.setBackground(new java.awt.Color(255, 204, 204));
+        jbCerrarApp.setBorder(null);
+        jbCerrarApp.setContentAreaFilled(false);
+        jbCerrarApp.setOpaque(true);
+        jbCerrarApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbCerrarAppActionPerformed(evt);
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Arial Black", 2, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Red Flix");
+        jlTituloRedflix.setBackground(new java.awt.Color(255, 255, 255));
+        jlTituloRedflix.setFont(new java.awt.Font("Arial Black", 2, 48)); // NOI18N
+        jlTituloRedflix.setForeground(new java.awt.Color(255, 255, 255));
+        jlTituloRedflix.setText("Red Flix");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(359, 359, 359)
+                .addComponent(jlTituloRedflix, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(358, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbCerrarApp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jButton1))))
+                .addComponent(jbCerrarApp, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jlTituloRedflix, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(187, 187, 187));
 
         BtnUsuario.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        BtnUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        BtnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user-protection (2).png"))); // NOI18N
         BtnUsuario.setText("Usuario");
         BtnUsuario.setBorder(null);
         BtnUsuario.setContentAreaFilled(false);
@@ -154,8 +167,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         BtnSerie.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        BtnSerie.setForeground(new java.awt.Color(0, 0, 0));
-        BtnSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/television-inteligente.png"))); // NOI18N
         BtnSerie.setText("Serie");
         BtnSerie.setBorder(null);
         BtnSerie.setContentAreaFilled(false);
@@ -167,8 +178,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         BtnPelicula.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        BtnPelicula.setForeground(new java.awt.Color(0, 0, 0));
-        BtnPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movie-ticket.png"))); // NOI18N
         BtnPelicula.setText("Pelicula");
         BtnPelicula.setBorder(null);
         BtnPelicula.setContentAreaFilled(false);
@@ -204,26 +213,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(BtnPelicula)
                 .addGap(75, 75, 75)
                 .addComponent(BtnSerie)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Panel de notificaciones");
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lbNotificaciones.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbNotificaciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbNotificaciones.setText("Panel de notificaciones");
+        lbNotificaciones.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         PUsuario.setBackground(new java.awt.Color(187, 187, 187));
         PUsuario.setForeground(new java.awt.Color(204, 204, 204));
 
         lbUsuario.setBackground(new java.awt.Color(0, 0, 0));
         lbUsuario.setFont(new java.awt.Font("Arial Black", 3, 30)); // NOI18N
-        lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario.setText("Usuario");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Alas:");
+        jLabel6.setText("Alias:");
 
         tfAliasUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,20 +238,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         lbNombreUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbNombreUsuario.setText("Nombre y apellidos:");
 
         btnCrearUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnCrearUsuario.setForeground(new java.awt.Color(0, 102, 255));
-        btnCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disquete.png"))); // NOI18N
         btnCrearUsuario.setText("Crear");
         btnCrearUsuario.setBorder(null);
         btnCrearUsuario.setBorderPainted(false);
         btnCrearUsuario.setContentAreaFilled(false);
+        btnCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearUsuarioActionPerformed(evt);
+            }
+        });
 
         btnBuscarUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnBuscarUsuario.setForeground(new java.awt.Color(0, 102, 255));
-        btnBuscarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar.png"))); // NOI18N
         btnBuscarUsuario.setText("Buscar");
         btnBuscarUsuario.setBorder(null);
         btnBuscarUsuario.setBorderPainted(false);
@@ -253,7 +261,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnActualizarUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnActualizarUsuario.setForeground(new java.awt.Color(0, 102, 255));
-        btnActualizarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         btnActualizarUsuario.setText("Actualizar");
         btnActualizarUsuario.setBorder(null);
         btnActualizarUsuario.setBorderPainted(false);
@@ -261,7 +268,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEliminarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEliminarUsuario.setForeground(new java.awt.Color(0, 102, 255));
-        btnEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarUsuario.setText("Eliminar");
         btnEliminarUsuario.setBorder(null);
         btnEliminarUsuario.setBorderPainted(false);
@@ -324,11 +330,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         lbSerie.setBackground(new java.awt.Color(0, 0, 0));
         lbSerie.setFont(new java.awt.Font("Arial Black", 3, 30)); // NOI18N
-        lbSerie.setForeground(new java.awt.Color(0, 0, 0));
         lbSerie.setText("Serie");
 
         lbTituloSerie.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbTituloSerie.setForeground(new java.awt.Color(0, 0, 0));
         lbTituloSerie.setText("Titulo:");
 
         tfTituloSerie.addActionListener(new java.awt.event.ActionListener() {
@@ -338,12 +342,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         lbNumTemporadas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbNumTemporadas.setForeground(new java.awt.Color(0, 0, 0));
         lbNumTemporadas.setText("Temporadas:");
 
         btnCrearSerie.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnCrearSerie.setForeground(new java.awt.Color(0, 102, 255));
-        btnCrearSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disquete.png"))); // NOI18N
         btnCrearSerie.setText("Crear");
         btnCrearSerie.setBorder(null);
         btnCrearSerie.setBorderPainted(false);
@@ -356,7 +358,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnBuscarSerie.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnBuscarSerie.setForeground(new java.awt.Color(0, 102, 255));
-        btnBuscarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar.png"))); // NOI18N
         btnBuscarSerie.setText("Buscar");
         btnBuscarSerie.setBorder(null);
         btnBuscarSerie.setBorderPainted(false);
@@ -364,7 +365,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnActualizarSerie.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnActualizarSerie.setForeground(new java.awt.Color(0, 102, 255));
-        btnActualizarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         btnActualizarSerie.setText("Actualizar");
         btnActualizarSerie.setBorder(null);
         btnActualizarSerie.setBorderPainted(false);
@@ -372,14 +372,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEliminarSerie.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEliminarSerie.setForeground(new java.awt.Color(0, 102, 255));
-        btnEliminarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarSerie.setText("Eliminar");
         btnEliminarSerie.setBorder(null);
         btnEliminarSerie.setBorderPainted(false);
         btnEliminarSerie.setContentAreaFilled(false);
 
         lbNumCapitulos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbNumCapitulos.setForeground(new java.awt.Color(0, 0, 0));
         lbNumCapitulos.setText("Capitulos:");
 
         javax.swing.GroupLayout PSerieLayout = new javax.swing.GroupLayout(PSerie);
@@ -424,7 +422,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfNumTemporadas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNumTemporadas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfNumCapitulos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNumCapitulos))
@@ -442,11 +440,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         lbPelicula.setBackground(new java.awt.Color(0, 0, 0));
         lbPelicula.setFont(new java.awt.Font("Arial Black", 3, 30)); // NOI18N
-        lbPelicula.setForeground(new java.awt.Color(0, 0, 0));
         lbPelicula.setText("Pelicula");
 
         lbTituloPelicula.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbTituloPelicula.setForeground(new java.awt.Color(0, 0, 0));
         lbTituloPelicula.setText("Titulo:");
 
         tfTituloPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -456,12 +452,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         lbResumenPelicula.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbResumenPelicula.setForeground(new java.awt.Color(0, 0, 0));
         lbResumenPelicula.setText("Resumen:");
 
         btnCrearPelicula.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnCrearPelicula.setForeground(new java.awt.Color(0, 102, 255));
-        btnCrearPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disquete.png"))); // NOI18N
         btnCrearPelicula.setText("Crear");
         btnCrearPelicula.setBorder(null);
         btnCrearPelicula.setBorderPainted(false);
@@ -469,7 +463,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnBuscarPelicula.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnBuscarPelicula.setForeground(new java.awt.Color(0, 102, 255));
-        btnBuscarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar.png"))); // NOI18N
         btnBuscarPelicula.setText("Buscar");
         btnBuscarPelicula.setBorder(null);
         btnBuscarPelicula.setBorderPainted(false);
@@ -477,7 +470,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnActualizarPelicula.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnActualizarPelicula.setForeground(new java.awt.Color(0, 102, 255));
-        btnActualizarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         btnActualizarPelicula.setText("Actualizar");
         btnActualizarPelicula.setBorder(null);
         btnActualizarPelicula.setBorderPainted(false);
@@ -485,7 +477,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEliminarPelicula.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEliminarPelicula.setForeground(new java.awt.Color(0, 102, 255));
-        btnEliminarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarPelicula.setText("Eliminar");
         btnEliminarPelicula.setBorder(null);
         btnEliminarPelicula.setBorderPainted(false);
@@ -508,11 +499,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         lbYearPelicula.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbYearPelicula.setForeground(new java.awt.Color(0, 0, 0));
         lbYearPelicula.setText("Año:");
 
         lbNombreDirector.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbNombreDirector.setForeground(new java.awt.Color(0, 0, 0));
         lbNombreDirector.setText("Director:");
 
         javax.swing.GroupLayout PPeliculaLayout = new javax.swing.GroupLayout(PPelicula);
@@ -570,7 +559,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(lbResumenPelicula)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfNombreDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNombreDirector))
@@ -595,7 +583,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lbNotificaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbAliasUsuarioLayout.createSequentialGroup()
                     .addContainerGap(195, Short.MAX_VALUE)
@@ -616,13 +604,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
                     .addGap(119, 119, 119)
-                    .addComponent(PSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(154, Short.MAX_VALUE)))
+                    .addComponent(PSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(256, Short.MAX_VALUE)))
             .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
                     .addGap(119, 119, 119)
@@ -645,10 +633,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbCerrarAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarAppActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbCerrarAppActionPerformed
 
     private void tfAliasUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAliasUsuarioActionPerformed
         // TODO add your handling code here:
@@ -689,10 +677,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_tfYearPeliculaActionPerformed
 
     private void btnCrearSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearSerieActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null,"Usuario Registrado");
+       
+        
+
     }//GEN-LAST:event_btnCrearSerieActionPerformed
 
+    private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
+        crearUsuario();
+    }//GEN-LAST:event_btnCrearUsuarioActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -747,17 +740,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarPelicula;
     private javax.swing.JButton btnEliminarSerie;
     private javax.swing.JButton btnEliminarUsuario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbCerrarApp;
+    private javax.swing.JLabel jlTituloRedflix;
     private javax.swing.JPanel lbAliasUsuario;
     private javax.swing.JLabel lbNombreDirector;
     private javax.swing.JLabel lbNombreUsuario;
+    private javax.swing.JLabel lbNotificaciones;
     private javax.swing.JLabel lbNumCapitulos;
     private javax.swing.JLabel lbNumTemporadas;
     private javax.swing.JLabel lbPelicula;
