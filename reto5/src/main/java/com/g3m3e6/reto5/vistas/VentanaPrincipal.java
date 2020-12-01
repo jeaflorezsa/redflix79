@@ -5,6 +5,8 @@
  */
 package com.g3m3e6.reto5.vistas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juand
@@ -259,6 +261,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEliminarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEliminarUsuario.setForeground(new java.awt.Color(0, 102, 255));
+        btnEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarUsuario.setText("Eliminar");
         btnEliminarUsuario.setBorder(null);
         btnEliminarUsuario.setBorderPainted(false);
@@ -345,6 +348,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnCrearSerie.setBorder(null);
         btnCrearSerie.setBorderPainted(false);
         btnCrearSerie.setContentAreaFilled(false);
+        btnCrearSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearSerieActionPerformed(evt);
+            }
+        });
 
         btnBuscarSerie.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnBuscarSerie.setForeground(new java.awt.Color(0, 102, 255));
@@ -364,6 +372,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEliminarSerie.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEliminarSerie.setForeground(new java.awt.Color(0, 102, 255));
+        btnEliminarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarSerie.setText("Eliminar");
         btnEliminarSerie.setBorder(null);
         btnEliminarSerie.setBorderPainted(false);
@@ -476,6 +485,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEliminarPelicula.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEliminarPelicula.setForeground(new java.awt.Color(0, 102, 255));
+        btnEliminarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarPelicula.setText("Eliminar");
         btnEliminarPelicula.setBorder(null);
         btnEliminarPelicula.setBorderPainted(false);
@@ -677,6 +687,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void tfYearPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfYearPeliculaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfYearPeliculaActionPerformed
+
+    private void btnCrearSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearSerieActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null,"Usuario Registrado");
+    }//GEN-LAST:event_btnCrearSerieActionPerformed
 
     /**
      * @param args the command line arguments
