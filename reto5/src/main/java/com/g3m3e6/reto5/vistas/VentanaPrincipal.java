@@ -17,6 +17,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         setResizable(false);
         initComponents();
+        PPelicula.setVisible(false);
+        PSerie.setVisible(false);
     }
 
     /**
@@ -37,16 +39,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BtnUsuario = new javax.swing.JButton();
         BtnSerie = new javax.swing.JButton();
         BtnPelicula = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        PUsuario = new javax.swing.JPanel();
         lbUsuario = new javax.swing.JLabel();
-        lbNombreUsuario = new javax.swing.JLabel();
-        tfAliasUsuario = new javax.swing.JTextField();
-        tfNombreUsuario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        tfAliasUsuario = new javax.swing.JTextField();
+        lbNombreUsuario = new javax.swing.JLabel();
+        tfNombreUsuario = new javax.swing.JTextField();
         btnCrearUsuario = new javax.swing.JButton();
         btnBuscarUsuario = new javax.swing.JButton();
         btnActualizarUsuario = new javax.swing.JButton();
         btnEliminarUsuario = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        PSerie = new javax.swing.JPanel();
+        lbSerie = new javax.swing.JLabel();
+        lbTituloSerie = new javax.swing.JLabel();
+        tfTituloSerie = new javax.swing.JTextField();
+        lbNumTemporadas = new javax.swing.JLabel();
+        tfNumTemporadas = new javax.swing.JTextField();
+        btnCrearSerie = new javax.swing.JButton();
+        btnBuscarSerie = new javax.swing.JButton();
+        btnActualizarSerie = new javax.swing.JButton();
+        btnEliminarSerie = new javax.swing.JButton();
+        tfNumCapitulos = new javax.swing.JTextField();
+        lbNumCapitulos = new javax.swing.JLabel();
+        PPelicula = new javax.swing.JPanel();
+        lbPelicula = new javax.swing.JLabel();
+        lbTituloPelicula = new javax.swing.JLabel();
+        tfTituloPelicula = new javax.swing.JTextField();
+        lbResumenPelicula = new javax.swing.JLabel();
+        btnCrearPelicula = new javax.swing.JButton();
+        btnBuscarPelicula = new javax.swing.JButton();
+        btnActualizarPelicula = new javax.swing.JButton();
+        btnEliminarPelicula = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tfResumenPelicula = new javax.swing.JTextArea();
+        tfNombreDirector = new javax.swing.JTextField();
+        tfYearPelicula = new javax.swing.JTextField();
+        lbYearPelicula = new javax.swing.JLabel();
+        lbNombreDirector = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -115,6 +145,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BtnUsuario.setBorder(null);
         BtnUsuario.setContentAreaFilled(false);
         BtnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUsuarioActionPerformed(evt);
+            }
+        });
 
         BtnSerie.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         BtnSerie.setForeground(new java.awt.Color(0, 0, 0));
@@ -123,6 +158,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BtnSerie.setBorder(null);
         BtnSerie.setContentAreaFilled(false);
         BtnSerie.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSerieActionPerformed(evt);
+            }
+        });
 
         BtnPelicula.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         BtnPelicula.setForeground(new java.awt.Color(0, 0, 0));
@@ -131,42 +171,57 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BtnPelicula.setBorder(null);
         BtnPelicula.setContentAreaFilled(false);
         BtnPelicula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPeliculaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(BtnSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtnPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(BtnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(94, 94, 94)
                 .addComponent(BtnUsuario)
-                .addGap(58, 58, 58)
+                .addGap(64, 64, 64)
                 .addComponent(BtnPelicula)
                 .addGap(75, 75, 75)
                 .addComponent(BtnSerie)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Panel de notificaciones");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        PUsuario.setBackground(new java.awt.Color(187, 187, 187));
+        PUsuario.setForeground(new java.awt.Color(204, 204, 204));
 
         lbUsuario.setBackground(new java.awt.Color(0, 0, 0));
         lbUsuario.setFont(new java.awt.Font("Arial Black", 3, 30)); // NOI18N
         lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario.setText("Usuario");
 
-        lbNombreUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lbNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        lbNombreUsuario.setText("Nombre y apellidos:");
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Alas:");
 
         tfAliasUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,11 +229,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Alas:");
+        lbNombreUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lbNombreUsuario.setText("Nombre y apellidos:");
 
-        btnCrearUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnCrearUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnCrearUsuario.setForeground(new java.awt.Color(0, 102, 255));
         btnCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disquete.png"))); // NOI18N
         btnCrearUsuario.setText("Crear");
@@ -186,7 +241,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnCrearUsuario.setBorderPainted(false);
         btnCrearUsuario.setContentAreaFilled(false);
 
-        btnBuscarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnBuscarUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnBuscarUsuario.setForeground(new java.awt.Color(0, 102, 255));
         btnBuscarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar.png"))); // NOI18N
         btnBuscarUsuario.setText("Buscar");
@@ -194,7 +249,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnBuscarUsuario.setBorderPainted(false);
         btnBuscarUsuario.setContentAreaFilled(false);
 
-        btnActualizarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnActualizarUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnActualizarUsuario.setForeground(new java.awt.Color(0, 102, 255));
         btnActualizarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         btnActualizarUsuario.setText("Actualizar");
@@ -204,17 +259,319 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEliminarUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEliminarUsuario.setForeground(new java.awt.Color(0, 102, 255));
-        btnEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/borrar.png"))); // NOI18N
         btnEliminarUsuario.setText("Eliminar");
         btnEliminarUsuario.setBorder(null);
         btnEliminarUsuario.setBorderPainted(false);
         btnEliminarUsuario.setContentAreaFilled(false);
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Panel de notificaciones");
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        javax.swing.GroupLayout PUsuarioLayout = new javax.swing.GroupLayout(PUsuario);
+        PUsuario.setLayout(PUsuarioLayout);
+        PUsuarioLayout.setHorizontalGroup(
+            PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PUsuarioLayout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addGroup(PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PUsuarioLayout.createSequentialGroup()
+                        .addGroup(PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(51, 51, 51)
+                        .addGroup(PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PUsuarioLayout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PUsuarioLayout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+        PUsuarioLayout.setVerticalGroup(
+            PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PUsuarioLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(tfAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNombreUsuario)
+                    .addComponent(tfNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(PUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+        );
+
+        PSerie.setBackground(new java.awt.Color(187, 187, 187));
+        PSerie.setForeground(new java.awt.Color(204, 204, 204));
+
+        lbSerie.setBackground(new java.awt.Color(0, 0, 0));
+        lbSerie.setFont(new java.awt.Font("Arial Black", 3, 30)); // NOI18N
+        lbSerie.setForeground(new java.awt.Color(0, 0, 0));
+        lbSerie.setText("Serie");
+
+        lbTituloSerie.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbTituloSerie.setForeground(new java.awt.Color(0, 0, 0));
+        lbTituloSerie.setText("Titulo:");
+
+        tfTituloSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTituloSerieActionPerformed(evt);
+            }
+        });
+
+        lbNumTemporadas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbNumTemporadas.setForeground(new java.awt.Color(0, 0, 0));
+        lbNumTemporadas.setText("Temporadas:");
+
+        btnCrearSerie.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnCrearSerie.setForeground(new java.awt.Color(0, 102, 255));
+        btnCrearSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disquete.png"))); // NOI18N
+        btnCrearSerie.setText("Crear");
+        btnCrearSerie.setBorder(null);
+        btnCrearSerie.setBorderPainted(false);
+        btnCrearSerie.setContentAreaFilled(false);
+
+        btnBuscarSerie.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnBuscarSerie.setForeground(new java.awt.Color(0, 102, 255));
+        btnBuscarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar.png"))); // NOI18N
+        btnBuscarSerie.setText("Buscar");
+        btnBuscarSerie.setBorder(null);
+        btnBuscarSerie.setBorderPainted(false);
+        btnBuscarSerie.setContentAreaFilled(false);
+
+        btnActualizarSerie.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnActualizarSerie.setForeground(new java.awt.Color(0, 102, 255));
+        btnActualizarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
+        btnActualizarSerie.setText("Actualizar");
+        btnActualizarSerie.setBorder(null);
+        btnActualizarSerie.setBorderPainted(false);
+        btnActualizarSerie.setContentAreaFilled(false);
+
+        btnEliminarSerie.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnEliminarSerie.setForeground(new java.awt.Color(0, 102, 255));
+        btnEliminarSerie.setText("Eliminar");
+        btnEliminarSerie.setBorder(null);
+        btnEliminarSerie.setBorderPainted(false);
+        btnEliminarSerie.setContentAreaFilled(false);
+
+        lbNumCapitulos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbNumCapitulos.setForeground(new java.awt.Color(0, 0, 0));
+        lbNumCapitulos.setText("Capitulos:");
+
+        javax.swing.GroupLayout PSerieLayout = new javax.swing.GroupLayout(PSerie);
+        PSerie.setLayout(PSerieLayout);
+        PSerieLayout.setHorizontalGroup(
+            PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PSerieLayout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(btnCrearSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnBuscarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnActualizarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(btnEliminarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(PSerieLayout.createSequentialGroup()
+                .addGap(181, 181, 181)
+                .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbNumCapitulos)
+                    .addComponent(lbTituloSerie)
+                    .addComponent(lbNumTemporadas))
+                .addGap(28, 28, 28)
+                .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(tfNumTemporadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfTituloSerie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfNumCapitulos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        PSerieLayout.setVerticalGroup(
+            PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PSerieLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfTituloSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTituloSerie))
+                .addGap(27, 27, 27)
+                .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNumTemporadas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNumTemporadas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNumCapitulos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNumCapitulos))
+                .addGap(32, 32, 32)
+                .addGroup(PSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+        );
+
+        PPelicula.setBackground(new java.awt.Color(187, 187, 187));
+        PPelicula.setForeground(new java.awt.Color(204, 204, 204));
+
+        lbPelicula.setBackground(new java.awt.Color(0, 0, 0));
+        lbPelicula.setFont(new java.awt.Font("Arial Black", 3, 30)); // NOI18N
+        lbPelicula.setForeground(new java.awt.Color(0, 0, 0));
+        lbPelicula.setText("Pelicula");
+
+        lbTituloPelicula.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbTituloPelicula.setForeground(new java.awt.Color(0, 0, 0));
+        lbTituloPelicula.setText("Titulo:");
+
+        tfTituloPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTituloPeliculaActionPerformed(evt);
+            }
+        });
+
+        lbResumenPelicula.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbResumenPelicula.setForeground(new java.awt.Color(0, 0, 0));
+        lbResumenPelicula.setText("Resumen:");
+
+        btnCrearPelicula.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnCrearPelicula.setForeground(new java.awt.Color(0, 102, 255));
+        btnCrearPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disquete.png"))); // NOI18N
+        btnCrearPelicula.setText("Crear");
+        btnCrearPelicula.setBorder(null);
+        btnCrearPelicula.setBorderPainted(false);
+        btnCrearPelicula.setContentAreaFilled(false);
+
+        btnBuscarPelicula.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnBuscarPelicula.setForeground(new java.awt.Color(0, 102, 255));
+        btnBuscarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buscar.png"))); // NOI18N
+        btnBuscarPelicula.setText("Buscar");
+        btnBuscarPelicula.setBorder(null);
+        btnBuscarPelicula.setBorderPainted(false);
+        btnBuscarPelicula.setContentAreaFilled(false);
+
+        btnActualizarPelicula.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnActualizarPelicula.setForeground(new java.awt.Color(0, 102, 255));
+        btnActualizarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
+        btnActualizarPelicula.setText("Actualizar");
+        btnActualizarPelicula.setBorder(null);
+        btnActualizarPelicula.setBorderPainted(false);
+        btnActualizarPelicula.setContentAreaFilled(false);
+
+        btnEliminarPelicula.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnEliminarPelicula.setForeground(new java.awt.Color(0, 102, 255));
+        btnEliminarPelicula.setText("Eliminar");
+        btnEliminarPelicula.setBorder(null);
+        btnEliminarPelicula.setBorderPainted(false);
+        btnEliminarPelicula.setContentAreaFilled(false);
+
+        tfResumenPelicula.setColumns(20);
+        tfResumenPelicula.setRows(5);
+        jScrollPane1.setViewportView(tfResumenPelicula);
+
+        tfNombreDirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombreDirectorActionPerformed(evt);
+            }
+        });
+
+        tfYearPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfYearPeliculaActionPerformed(evt);
+            }
+        });
+
+        lbYearPelicula.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbYearPelicula.setForeground(new java.awt.Color(0, 0, 0));
+        lbYearPelicula.setText("Año:");
+
+        lbNombreDirector.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbNombreDirector.setForeground(new java.awt.Color(0, 0, 0));
+        lbNombreDirector.setText("Director:");
+
+        javax.swing.GroupLayout PPeliculaLayout = new javax.swing.GroupLayout(PPelicula);
+        PPelicula.setLayout(PPeliculaLayout);
+        PPeliculaLayout.setHorizontalGroup(
+            PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PPeliculaLayout.createSequentialGroup()
+                .addContainerGap(121, Short.MAX_VALUE)
+                .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PPeliculaLayout.createSequentialGroup()
+                        .addComponent(btnCrearPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(btnActualizarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnEliminarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PPeliculaLayout.createSequentialGroup()
+                        .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbNombreDirector)
+                            .addComponent(lbYearPelicula)
+                            .addComponent(lbTituloPelicula)
+                            .addComponent(lbResumenPelicula))
+                        .addGap(32, 32, 32)
+                        .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tfTituloPelicula)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
+                            .addComponent(tfYearPelicula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNombreDirector, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(116, 116, 116))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PPeliculaLayout.createSequentialGroup()
+                        .addComponent(lbPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(278, 278, 278))))
+        );
+        PPeliculaLayout.setVerticalGroup(
+            PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PPeliculaLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lbPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfTituloPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTituloPelicula))
+                .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PPeliculaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfYearPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbYearPelicula)))
+                    .addGroup(PPeliculaLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(lbResumenPelicula)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNombreDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNombreDirector))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
+        );
 
         javax.swing.GroupLayout lbAliasUsuarioLayout = new javax.swing.GroupLayout(lbAliasUsuario);
         lbAliasUsuario.setLayout(lbAliasUsuarioLayout);
@@ -226,67 +583,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(51, 51, 51)
-                                .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(139, 139, 139))
-                            .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                                .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                                        .addGap(101, 101, 101)
-                                        .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(40, 40, 40)
-                                        .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(21, 21, 21)
-                                        .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                                        .addGap(284, 284, 284)
-                                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(67, Short.MAX_VALUE))))
-                    .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbAliasUsuarioLayout.createSequentialGroup()
+                    .addContainerGap(195, Short.MAX_VALUE)
+                    .addComponent(PSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+            .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbAliasUsuarioLayout.createSequentialGroup()
+                    .addContainerGap(195, Short.MAX_VALUE)
+                    .addComponent(PPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         lbAliasUsuarioLayout.setVerticalGroup(
             lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbAliasUsuarioLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(27, 27, 27)
-                        .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbNombreUsuario)
-                            .addComponent(tfNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(68, 68, 68)
-                        .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
+                    .addGap(119, 119, 119)
+                    .addComponent(PSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(154, Short.MAX_VALUE)))
+            .addGroup(lbAliasUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lbAliasUsuarioLayout.createSequentialGroup()
+                    .addGap(119, 119, 119)
+                    .addComponent(PPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(154, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,6 +643,40 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void tfAliasUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAliasUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfAliasUsuarioActionPerformed
+
+    private void tfTituloSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTituloSerieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTituloSerieActionPerformed
+
+    private void tfTituloPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTituloPeliculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTituloPeliculaActionPerformed
+
+    private void BtnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUsuarioActionPerformed
+        PUsuario.setVisible(true);
+        PSerie.setVisible(false);
+        PPelicula.setVisible(false);
+    }//GEN-LAST:event_BtnUsuarioActionPerformed
+
+    private void BtnPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPeliculaActionPerformed
+        PUsuario.setVisible(false);
+        PSerie.setVisible(false);
+        PPelicula.setVisible(true);
+    }//GEN-LAST:event_BtnPeliculaActionPerformed
+
+    private void BtnSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSerieActionPerformed
+        PUsuario.setVisible(false);
+        PSerie.setVisible(true);
+        PPelicula.setVisible(false);
+    }//GEN-LAST:event_BtnSerieActionPerformed
+
+    private void tfNombreDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreDirectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNombreDirectorActionPerformed
+
+    private void tfYearPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfYearPeliculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfYearPeliculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,9 +717,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BtnPelicula;
     private javax.swing.JButton BtnSerie;
     private javax.swing.JButton BtnUsuario;
+    private javax.swing.JPanel PPelicula;
+    private javax.swing.JPanel PSerie;
+    private javax.swing.JPanel PUsuario;
+    private javax.swing.JButton btnActualizarPelicula;
+    private javax.swing.JButton btnActualizarSerie;
     private javax.swing.JButton btnActualizarUsuario;
+    private javax.swing.JButton btnBuscarPelicula;
+    private javax.swing.JButton btnBuscarSerie;
     private javax.swing.JButton btnBuscarUsuario;
+    private javax.swing.JButton btnCrearPelicula;
+    private javax.swing.JButton btnCrearSerie;
     private javax.swing.JButton btnCrearUsuario;
+    private javax.swing.JButton btnEliminarPelicula;
+    private javax.swing.JButton btnEliminarSerie;
     private javax.swing.JButton btnEliminarUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -363,10 +739,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel lbAliasUsuario;
+    private javax.swing.JLabel lbNombreDirector;
     private javax.swing.JLabel lbNombreUsuario;
+    private javax.swing.JLabel lbNumCapitulos;
+    private javax.swing.JLabel lbNumTemporadas;
+    private javax.swing.JLabel lbPelicula;
+    private javax.swing.JLabel lbResumenPelicula;
+    private javax.swing.JLabel lbSerie;
+    private javax.swing.JLabel lbTituloPelicula;
+    private javax.swing.JLabel lbTituloSerie;
     private javax.swing.JLabel lbUsuario;
+    private javax.swing.JLabel lbYearPelicula;
     private javax.swing.JTextField tfAliasUsuario;
+    private javax.swing.JTextField tfNombreDirector;
     private javax.swing.JTextField tfNombreUsuario;
+    private javax.swing.JTextField tfNumCapitulos;
+    private javax.swing.JTextField tfNumTemporadas;
+    private javax.swing.JTextArea tfResumenPelicula;
+    private javax.swing.JTextField tfTituloPelicula;
+    private javax.swing.JTextField tfTituloSerie;
+    private javax.swing.JTextField tfYearPelicula;
     // End of variables declaration//GEN-END:variables
 }
